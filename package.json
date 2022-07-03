@@ -1,0 +1,25 @@
+{
+  "name": "covidsimfrontend",
+  "version": "1.0.0",
+  "description": "Front end da aplicação de simulação de dados COVID19",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tckas/CovidSimFrontEnd.git"
+  },
+  "keywords": [
+    "covid19;simulacao"
+  ],
+  "author": "Tiago Castilho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tckas/CovidSimFrontEnd/issues"
+  },
+  "homepage": "https://github.com/tckas/CovidSimFrontEnd#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
