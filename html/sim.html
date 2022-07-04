@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Simulação</title>
+        <link href="css/tabstyle.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand ps-3" href="https://covidsimulation.herokuapp.com/">Página Inicial</a>
+            <a class="navbar-brand ps-3" href="https://covidsimulation.herokuapp.com/dados">Dados</a>
+        </nav>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Gráficos de dados</h1>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                Este gráfico vai fazer a simulação dos casos futuros com dados inseridos a partir dos casos já confirmados, pode-se alterar as possibilidades do gráfico de acordo com várias opções apresentadas abaixo.
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-area me-1"></i>
+                                Simulação
+                            </div>
+                            <div class="card-body"><canvas id="myAreaChart" width="100%" height="30"></canvas></div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Simulação COVID-19</div>
+                            <div>
+                                <a href="https://autonoma.pt/en/">Universidadde Autónoma de Lisboa</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    </body>
+</html>

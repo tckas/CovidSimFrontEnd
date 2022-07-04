@@ -6,10 +6,6 @@ if (port == null || port == "") {
 }
 app.listen(port);
 
-
-
-
-
 const path = require('path');
 app.use(express.static(__dirname + "/public"));
 app.get('/', function(req, res){
@@ -17,4 +13,7 @@ app.get('/', function(req, res){
 });
 app.get('/dados', function(req, res){
     res.sendFile(path.join(__dirname, '/html/dados.html'));
+});
+app.get('/simulacao', function(req, res){
+    res.sendFile(path.join(__dirname, '/html/sim.html'));
 });
