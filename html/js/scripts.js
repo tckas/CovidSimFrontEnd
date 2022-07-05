@@ -36,6 +36,3 @@ async function login(){
 login();
 
 // console.log(token)
-function myFunction(){
-    document.getElementById("exemplo").innerHTML = key;
-}
