@@ -1,5 +1,8 @@
 const express = require("express");
 const app = express();
+require('dotenv').config();
+let key = process.env.TOKEN;
+console.log(key);
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 8000;
