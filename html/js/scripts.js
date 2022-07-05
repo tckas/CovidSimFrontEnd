@@ -36,7 +36,6 @@ async function login(){
 login();
 
 // console.log(token)
-export function displaySong1() {
-    var p = document.getElementById("paragraph");
-    p.style.display = "block";  	 
-  }
+export function myFunction() {
+    document.getElementById("demo").style.color = "red";
+}
