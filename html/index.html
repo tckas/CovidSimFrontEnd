@@ -30,8 +30,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <h2>Números atuais COVID-19</h2>
-                        <button onclick="myFunction()">Click me</button> 
-                        <p id="exemplo"></p> 
+                        <p id="greet"></p>
                     </div>
                 </div>
             </div>
@@ -60,5 +59,10 @@
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>
+        <script>
+            require('dotenv').config();
+            var key = process.env.TOKEN;
+            document.getElementById("greet").innerHTML = key;
+        </script>
     </body>
 </html>
