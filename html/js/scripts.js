@@ -2,7 +2,7 @@ const axios = require('axios');
 const { json } = require('express');
 require('dotenv').config();
 
-var key = process.env.TOKEN;
+let key = process.env.TOKEN;
 console.log(key);
 
 /*async function prediction_get(){

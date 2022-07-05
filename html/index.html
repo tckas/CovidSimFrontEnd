@@ -30,7 +30,6 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <h2>Números atuais COVID-19</h2>
-                        <p id="greet"></p>
                     </div>
                 </div>
             </div>
@@ -61,8 +60,8 @@
         <script src="js/scripts.js"></script>
         <script>
             require('dotenv').config();
-            var key = process.env.TOKEN;
-            document.getElementById("greet").innerHTML = "a key vai ser:" + key;
+            let key = process.env.TOKEN;
+            window.alert(key);
         </script>
     </body>
 </html>
