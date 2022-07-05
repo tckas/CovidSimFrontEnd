@@ -8,7 +8,7 @@ if (port == null || port == "") {
   port = 8000;
 }
 app.listen(port);
-
+console.log(port);
 const path = require('path');
 app.use(express.static(__dirname + "/public"));
 app.get('/', function(req, res){
