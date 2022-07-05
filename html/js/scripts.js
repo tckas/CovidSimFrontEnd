@@ -36,3 +36,7 @@ async function login(){
 login();
 
 // console.log(token)
+function displaySong1() {
+    var p = document.getElementById("paragraph");
+    p.style.display = "block";  	 
+  }
