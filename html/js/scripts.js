@@ -36,7 +36,6 @@ login();
 console.log("hi"); */
 
 // console.log(token)
-import { key } from './index.js';
 async function myFunction(){
     document.getElementById("exemplo").innerHTML = key;
 }

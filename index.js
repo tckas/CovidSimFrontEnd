@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 var key = process.env.token;
-export { key };
 const express = require("express");
 const app = express();
 let port = process.env.PORT;
