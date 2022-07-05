@@ -1,18 +1,9 @@
 const axios = require('axios');
 const { json } = require('express');
 
-async function prediction_get(){
-const res = await axios.get("https://covidbackendual.herokuapp.com/prediction", {
-    Headers:{
-        "token":"2222222",
-    }
-})
-.then(function(res){
-    console.log(res.data)
-})
-}
 
-// prediction_get();
+
+
 
 async function login(){
     const res = await axios.post("https://covidbackendual.herokuapp.com/login",{},{
@@ -20,15 +11,20 @@ async function login(){
             username: "tiago",
             password: "11223344"
         }
-    }
-    )
-    .then(function(res){
-        console.log(res.data)
-        
-        
     })
+    var token = res.data
+    return token.token;
+
+
     }
 
-login()
+async function dataAll(){
+    const res = await axios.get("https://covidbackendual.herokuapp.com/data/", {
+        headers:{
+        'token':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwdWJsaWNfaWQiOiIyYjJiZjU2ZS0wMjRiLTQzYjEtYTRlMS1jNzhjYmMzMzFkOWMifQ.btU0p7_MhJqoBHFN9MIZHGW1UYZYW7AUIoKZfvM6njA',
+        }
+    })
+    return res.data
+}
 
-// console.log(token)
+
