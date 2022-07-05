@@ -1,3 +1,5 @@
+// import {prediction_get} from "scripts.js"
+
 const express = require("express");
 const app = express();
 let port = process.env.PORT;
