@@ -14,7 +14,7 @@ const res = await axios.get("https://covidbackendual.herokuapp.com/prediction", 
 
 // prediction_get();
 
-async function login(){
+/* async function login(){
     const res = await axios.post("https://covidbackendual.herokuapp.com/login",{},{
         auth: {
             username: "tiago",
@@ -24,16 +24,16 @@ async function login(){
     )
     .then(function(res){
         //console.log(res.data)
-        /* let datatot = res.data
+        let datatot = res.data
         let tokensend = datatot.toString().substring(0,20);
-        console.log(tokensend); */
+        console.log(tokensend);
         console.log(res.data)
 
     })
     }
 
 login();
-console.log("hi");
+console.log("hi"); */
 
 // console.log(token)
 import { key } from './index.js';
