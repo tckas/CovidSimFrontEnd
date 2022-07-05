@@ -1,3 +1,7 @@
+require('dotenv').config();
+
+var key = process.env.token;
+export { key };
 const express = require("express");
 const app = express();
 let port = process.env.PORT;
@@ -17,3 +21,11 @@ app.get('/dados', function(req, res){
 app.get('/simulacao', function(req, res){
     res.sendFile(path.join(__dirname, '/html/sim.html'));
 });
+
+/* if (process.env.environment == "production"){
+    var key = process.env.token 
+}else{
+    
+}
+     */
+
