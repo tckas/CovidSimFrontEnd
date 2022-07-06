@@ -28,9 +28,10 @@ async function internadosf(){
     var internadosatuais = atualintern.internados; // internados atualmente
     var internadosuciatual = atualintern.internados_uci; // internados em uci atualmente
     var obitosatual = atualintern.obitos; // obitos atuais
+    console.log(intern);
 }
 
-async function casosdiariosf(){
+/* async function casosdiariosf(){
     const res = await axios.get("https://covidbackendual.herokuapp.com/casos_diarios", {
         headers:{
         'token': process.env.TOKEN,
@@ -40,10 +41,10 @@ async function casosdiariosf(){
     var casosatuais = casosdia[Object.keys(casosdia).reverse()[0]];
     var datacasosatual = casosatuais.data;
     var novosconfirm = casosatuais.confirmados_novos;
-    diario.textcontent = JSON.stringify(novosconfirm);
+    //diario.textcontent = JSON.stringify(novosconfirm);
     //document.getElementById('diario').innerHTML= novosconfirm;
-    
-}
+    //console.log(casosdia);
+} */
 
 async function predictionf(){
     const res = await axios.get("https://covidbackendual.herokuapp.com/prediction", {
@@ -80,5 +81,5 @@ predictionf();
 casosdiariosf();
 internadosf();
 
-
+console.log(casosdiariosf)
 

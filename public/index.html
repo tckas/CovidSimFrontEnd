@@ -72,5 +72,21 @@
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>
+        <script>
+            async function casosdiariosf(){
+                const res = await axios.get("https://covidbackendual.herokuapp.com/casos_diarios", {
+                    headers:{
+                        'token': process.env.TOKEN,
+                        }
+                    })
+                    var casosdia = res.data;
+                    var casosatuais = casosdia[Object.keys(casosdia).reverse()[0]];
+                    var datacasosatual = casosatuais.data;
+                    var novosconfirm = casosatuais.confirmados_novos;
+                    //diario.textcontent = JSON.stringify(novosconfirm);
+                    document.getElementById('diario').innerHTML= novosconfirm;
+                    //console.log(casosdia);
+            }
+        </script>
     </body>
 </html>
