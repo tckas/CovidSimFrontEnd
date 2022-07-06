@@ -82,5 +82,4 @@ internadosf();
 
 //  HTML 
 
-var diario = document.getElementById("diario")
-diario = novosconfirm
+document.getElementById("diario").innerHTML = novosconfirm;
