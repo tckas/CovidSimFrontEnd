@@ -73,6 +73,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>
         <script>
+            const axios = require('axios').config();
             async function casosdiariosf(){
                 const res = await axios.get("https://covidbackendual.herokuapp.com/casos_diarios", {
                     headers:{

@@ -1,6 +1,5 @@
+const axios = require('axios').config();
 require('dotenv').config();
-const axios = require('axios');
-const { json } = require('express');
 
 
 async function login(){ //apenas para demonstrar como seria feito o pedido do token ao Backend API com o método post
