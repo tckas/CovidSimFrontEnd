@@ -1,4 +1,3 @@
-//document.getElementById("diario").innerHTML = "2000"
 require('dotenv').config();
 const axios = require('axios');
 const { json } = require('express');
@@ -42,6 +41,7 @@ async function casosdiariosf(){
     var casosatuais = casosdia[Object.keys(casosdia).reverse()[0]];
     var datacasosatual = casosatuais.data;
     var novosconfirm = casosatuais.confirmados_novos;
+    document.getElementById('diario').innerHTML= novosconfirm;
     
 }
 
@@ -80,6 +80,5 @@ predictionf();
 casosdiariosf();
 internadosf();
 
-//  HTML 
-document.getElementById('diario').innerHTML= novosconfirm;
+
 
