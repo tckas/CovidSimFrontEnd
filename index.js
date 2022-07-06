@@ -12,13 +12,13 @@ console.log(port);
 const path = require('path');
 app.use(express.static(__dirname + "/public"));
 app.get('/', function(req, res){
-    res.sendFile(path.join(__dirname, '/html/index.html'));
+    res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 app.get('/dados', function(req, res){
-    res.sendFile(path.join(__dirname, '/html/dados.html'));
+    res.sendFile(path.join(__dirname, '/public/dados.html'));
 });
 app.get('/simulacao', function(req, res){
-    res.sendFile(path.join(__dirname, '/html/sim.html'));
+    res.sendFile(path.join(__dirname, '/public/sim.html'));
 });
 
 /* if (process.env.environment == "production"){
