@@ -1,0 +1,1 @@
+document.getElementById("diario").innerHTML = "2000"
