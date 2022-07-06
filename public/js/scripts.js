@@ -28,7 +28,6 @@ async function internadosf(){
     var internadosatuais = atualintern.internados; // internados atualmente
     var internadosuciatual = atualintern.internados_uci; // internados em uci atualmente
     var obitosatual = atualintern.obitos; // obitos atuais
-    
 }
 
 async function casosdiariosf(){
@@ -41,7 +40,8 @@ async function casosdiariosf(){
     var casosatuais = casosdia[Object.keys(casosdia).reverse()[0]];
     var datacasosatual = casosatuais.data;
     var novosconfirm = casosatuais.confirmados_novos;
-    document.getElementById('diario').innerHTML= novosconfirm;
+    diarios.textcontent = novosconfirm;
+    //document.getElementById('diario').innerHTML= novosconfirm;
     
 }
 
