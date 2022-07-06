@@ -1,8 +1,3 @@
-function myFunction() {
-    document.getElementById("demo").style.color = "red";
-  }
-
-  
 const express = require("express");
 const app = express();
 require('dotenv').config();
