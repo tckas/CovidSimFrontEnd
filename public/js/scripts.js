@@ -1,10 +1,10 @@
 //document.getElementById("diario").innerHTML = "2000"
-
+require('dotenv').config();
 const axios = require('axios');
 const { json } = require('express');
 
 
-async function login(){
+async function login(){ //apenas para demonstrar como seria feito o pedido do token ao Backend API com o método post
     const res = await axios.post("https://covidbackendual.herokuapp.com/login",{},{
         auth: {
             username: "tiago",
@@ -17,22 +17,10 @@ async function login(){
 }
 
 
-
-
-
-async function dataAll(){
-    const res = await axios.get("https://covidbackendual.herokuapp.com/data/", {
-        headers:{
-        'token':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwdWJsaWNfaWQiOiIyYjJiZjU2ZS0wMjRiLTQzYjEtYTRlMS1jNzhjYmMzMzFkOWMifQ.btU0p7_MhJqoBHFN9MIZHGW1UYZYW7AUIoKZfvM6njA',
-        } 
-    })
-    console.log(res.data);
-}
-
 async function internadosf(){
     const res = await axios.get("https://covidbackendual.herokuapp.com/internados", {
         headers:{
-        'token':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwdWJsaWNfaWQiOiIyYjJiZjU2ZS0wMjRiLTQzYjEtYTRlMS1jNzhjYmMzMzFkOWMifQ.btU0p7_MhJqoBHFN9MIZHGW1UYZYW7AUIoKZfvM6njA',
+        'token': process.env.TOKEN,
         }
     })
     var intern = res.data;
@@ -41,44 +29,58 @@ async function internadosf(){
     var internadosatuais = atualintern.internados; // internados atualmente
     var internadosuciatual = atualintern.internados_uci; // internados em uci atualmente
     var obitosatual = atualintern.obitos; // obitos atuais
+    
 }
 
 async function casosdiariosf(){
     const res = await axios.get("https://covidbackendual.herokuapp.com/casos_diarios", {
         headers:{
-        'token':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwdWJsaWNfaWQiOiIyYjJiZjU2ZS0wMjRiLTQzYjEtYTRlMS1jNzhjYmMzMzFkOWMifQ.btU0p7_MhJqoBHFN9MIZHGW1UYZYW7AUIoKZfvM6njA',
+        'token': process.env.TOKEN,
         }
     })
     var casosdia = res.data;
     var casosatuais = casosdia[Object.keys(casosdia).reverse()[0]];
     var datacasosatual = casosatuais.data;
     var novosconfirm = casosatuais.confirmados_novos;
+    console.log(casosatuais);
 }
 
 async function predictionf(){
     const res = await axios.get("https://covidbackendual.herokuapp.com/prediction", {
         headers:{
-        'token':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwdWJsaWNfaWQiOiIyYjJiZjU2ZS0wMjRiLTQzYjEtYTRlMS1jNzhjYmMzMzFkOWMifQ.btU0p7_MhJqoBHFN9MIZHGW1UYZYW7AUIoKZfvM6njA',
+        'token': process.env.TOKEN,
         }
     })
-    var simul = res.data
-    var length= 0;
-    for(var key in simul) {
-        if(simul.hasOwnProperty(key)){
-            length++;
-        }
-    }
-    for (let i = 0; i < length; i++) {
-        console.log(simul[i])
-    }
-    console.log(simul);
+    var simul = JSON.parse(JSON.stringify(res.data))
+    var simul2 = JSON.parse(JSON.stringify(res.data))
+    var simul3 = JSON.parse(JSON.stringify(res.data))
+    var arraylength = simul.length;
     
-    //console.log(suscet);
+    for (var i = 0; i<arraylength;i++){ //suscetiveis
+        simul[i].splice(1,2);
+    }
+
+    for (var b = 0; b<arraylength;b++){ //numero de infetados
+        simul2[b].splice(2,1);
+        simul2[b].splice(0,1);
+
+    }
+
+    for (var b = 0; b<arraylength;b++){ //numero de recuperados
+        simul3[b].splice(0,2);
+
+    }
+    
 }
 // segundo numero de infetados
 // terceiro recuperados
 //primeiro suscetiveis
 
 predictionf();
-//casosdiariosf();
-//internadosf();
+casosdiariosf();
+internadosf();
+
+//  HTML 
+
+var diario = document.getElementById("diario")
+diario = novosconfirm
