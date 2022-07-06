@@ -40,7 +40,7 @@ async function casosdiariosf(){
     var casosatuais = casosdia[Object.keys(casosdia).reverse()[0]];
     var datacasosatual = casosatuais.data;
     var novosconfirm = casosatuais.confirmados_novos;
-    diarios.textcontent = novosconfirm;
+    diario.textcontent = novosconfirm;
     //document.getElementById('diario').innerHTML= novosconfirm;
     
 }
