@@ -1,4 +1,5 @@
 const axios = require('axios');
+const { json } = require('express');
 require('dotenv').config();
 
 
@@ -23,14 +24,15 @@ async function internadosf(){
     })
     var intern = res.data;
     var atualintern = intern[Object.keys(intern).reverse()[0]];  // atual
-    var dataintern = atualintern.data; // data do ultimo dia
-    var internadosatuais = atualintern.internados; // internados atualmente
-    var internadosuciatual = atualintern.internados_uci; // internados em uci atualmente
-    var obitosatual = atualintern.obitos; // obitos atuais
-    console.log(intern);
+    datainternados = atualintern.data; // data do ultimo dia
+    internadosatuais = atualintern.internados; // internados atualmente
+    internadosuciatual = atualintern.internados_uci; // internados em uci atualmente
+    obitosatual = atualintern.obitos; // obitos atuais
+    
+    return [internadosatuais, datainternados, internadosuciatual, obitosatual]
 }
 
-/* async function casosdiariosf(){
+async function casosdiariosf(){
     const res = await axios.get("https://covidbackendual.herokuapp.com/casos_diarios", {
         headers:{
         'token': process.env.TOKEN,
@@ -38,12 +40,11 @@ async function internadosf(){
     })
     var casosdia = res.data;
     var casosatuais = casosdia[Object.keys(casosdia).reverse()[0]];
-    var datacasosatual = casosatuais.data;
-    var novosconfirm = casosatuais.confirmados_novos;
-    //diario.textcontent = JSON.stringify(novosconfirm);
-    //document.getElementById('diario').innerHTML= novosconfirm;
-    //console.log(casosdia);
-} */
+    datacasosatual = casosatuais.data;
+    novosconfirm = casosatuais.confirmados_novos;
+    
+    return [novosconfirm, datacasosatual]
+} 
 
 async function predictionf(){
     const res = await axios.get("https://covidbackendual.herokuapp.com/prediction", {
@@ -76,9 +77,5 @@ async function predictionf(){
 // terceiro recuperados
 //primeiro suscetiveis
 
-predictionf();
-casosdiariosf();
-internadosf();
 
-console.log(casosdiariosf)
-
+module.exports = {casosdiariosf, internadosf}
