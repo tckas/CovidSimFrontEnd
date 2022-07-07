@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="viewport" content="width=device-width" />
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Modelo de simulação de dados covid19</title>       
@@ -12,6 +12,13 @@
         p {text-align: center;}
         h1 {text-align: center;}
         </style>
+        <style>
+            img {
+                max-width: 100%;
+            }
+            </style>
+            
+        
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -29,8 +36,7 @@
                 <h1 class="text-white fs-3 fw-bolder">Demonstração e simulação de dados COVID-19</h1>
             </div>
         </header>
-        <div class="w3-container">
-            <div class="w3-card-4" style="position:relative; left:100px; width: 250px;">
+            <div class="w3-card-4" style="position:relative;">
               <header class="w3-container">
                 <h1>Novos casos confirmados</h1>
               </header>
@@ -41,7 +47,7 @@
                 <p>Atualizado em: <%= token1 %></p>
               </div>
             </div>
-            <div class="w3-card-4" style="position:relative; left:450px; top:-211px; width: 250px;">
+            <div class="w3-card-4" style="position:relative;">
                 <header class="w3-container">
                   <h1>Internados Atualmente</h1>
                 </header>
@@ -53,7 +59,7 @@
                 </div>
               </div>
           </div>
-          <div class="w3-card-4" style="position:relative; left:820px; top:-424px; width: 250px;">
+          <div class="w3-card-4" style="position:relative;">
             <header class="w3-container">
               <h1>Internados em UCI</h1>
             </header>
@@ -65,7 +71,7 @@
             </div>
           </div>
           </div>
-          <div class="w3-card-4" style="position:relative; left:1190px; top:-636px; width: 250px;">
+          <div class="w3-card-4" style="position:relative;">
             <header class="w3-container">
               <h1>Óbitos Atualmente</h1>
             </header>
@@ -77,12 +83,12 @@
             </div>
           </div>
           </div>
-        </div>
+
         <!-- Content section-->
         <section class="py-5">
             <div class="container my-5">
                 <div class="row justify-content-center">
-                    <div class="col-lg-6" style="position:relative; top:-600px;">
+                    <div class="col-lg-6" style="position:relative; top:750px;">
                         <h1>Descrição da Aplicação</h1>
                         <br>
                         <p class="lead">Esta aplicação Web é um projeto de final de curso do Curso de Engenharia Informática da Universidade Autónoma de Lisboa, feita para demonstrar os dados atuais da pandemia de COVID-19 em Portugal, sendo estes Infetados, Óbitos, Internados, Internados em UCI... Com ajuda de gráficos e imagens para a melhor compreensão do utilizador.
