@@ -9,6 +9,8 @@
         <title>Tabelas</title>
         <link href="css/tabstyle.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+        <script src="/scripts.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -21,38 +23,128 @@
                         <h1 class="mt-4">Gráficos de dados</h1>
                         <div class="card mb-4">
                             <div class="card-body">
-                                Estes gráficos representam os dados atuais ou da ultima vez que foram atualizados de várias informações relacionadas à pandemia COVID-19.
+                                Bla bla bla
                             </div>
                         </div>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-chart-area me-1"></i>
-                                Casos confirmados 
+                                Novos Casos 
                             </div>
-                            <div class="card-body"><canvas id="myAreaChart" width="100%" height="30"><script type = "text/javascript" src="js/scripts.js"></script></canvas></div>
+                            <div class="card-body">
+                                <canvas id="myAreaChart" width="100%" height="30"></canvas>
+                                <script>
+                                var test = <%- JSON.stringify(inf) %>; 
+                                var test1 = <%- JSON.stringify(inf1) %>;    
+                                chartit();
+                                function chartit(){                                     
+                                var ctx = document.getElementById('myAreaChart');
+                                    var myChart = new Chart(ctx, {
+                                        type: 'line',
+                                        data: {
+                                            labels: test1, 
+                                            datasets: [{
+                                                label: 'Novos casos diários',
+                                                data: test,
+                                                backgroundColor: [
+                                                    'rgba(255, 99, 132, 0.2)'
+                                                ],
+                                                borderColor: [
+                                                    'rgba(255, 99, 132, 1)'
+                                                ],
+                                                borderWidth: 2
+                                            }]
+                                        },
+                                    });
+                                }
+                                </script>
+                            
+                            </div>
                             
                         </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar me-1"></i>
-                                        População Vacinada
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas></div>
-                                    
-                                </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-area me-1"></i>
+                                Número de Internados e Internados em UCI
                             </div>
-                            <div class="col-lg-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-pie me-1"></i>
-                                       Outra data que podemos por
-                                    </div>
-                                    <div class="card-body"><canvas id="myPieChart" width="100%" height="50"></canvas></div>
-                                    
-                                </div>
+                            <div class="card-body">
+                                <canvas id="myAreaChart2" width="100%" height="30"></canvas>
+                                <script>
+                                var duplo = <%- JSON.stringify(inf2) %>; 
+                                var duplo1 = <%- JSON.stringify(inf3) %>;  
+                                var duplo3 = <%- JSON.stringify(inf5) %>;  
+                                chartitd();
+                                function chartitd(){                                     
+                                var ctx = document.getElementById('myAreaChart2');
+                                    var myChart = new Chart(ctx, {
+                                        type: 'line',
+                                        data: {
+                                            labels: duplo3, 
+                                            datasets: [{
+                                                label: 'Número de Internados',
+                                                data: duplo,
+                                                backgroundColor: [
+                                                    'rgba(255, 10, 132, 0.2)'
+                                                ],
+                                                borderColor: [
+                                                    'rgba(255, 10, 132, 1)'
+                                                ],
+                                                borderWidth: 2
+                                            },
+                                            {label: 'Número de internados em UCI',
+                                                data: duplo1,
+                                                backgroundColor: [
+                                                    'rgba(255, 99, 100, 0.2)'
+                                                ],
+                                                borderColor: [
+                                                    'rgba(255, 99, 100, 1)'
+                                                ],
+                                                borderWidth: 2
+                                        }]
+                                        },
+                                    });
+                                }
+                                </script>
+                            
                             </div>
+                            
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-area me-1"></i>
+                                Número de Óbitos Total 
+                            </div>
+                            <div class="card-body">
+                                <canvas id="myAreaChart3" width="100%" height="30"></canvas>
+                                <script>
+                                var obi = <%- JSON.stringify(inf4) %>; 
+                                var obi1 = <%- JSON.stringify(inf5) %>;    
+                                chartito();
+                                function chartito(){                                     
+                                var ctx = document.getElementById('myAreaChart3');
+                                    var myChart = new Chart(ctx, {
+                                        type: 'line',
+                                        data: {
+                                            labels: obi1, 
+                                            datasets: [{
+                                                label: 'Óbitos Acumulados',
+                                                data: obi,
+                                                backgroundColor: [
+                                                    'rgba(0, 10, 255, 0.2)'
+                                                ],
+                                                borderColor: [
+                                                    'rgba(0, 10, 255, 1)'
+                                                ],
+                                                borderWidth: 2
+                                            }]
+                                        },
+                                    });
+                                }
+                                </script>
+                            
+                            </div>
+                            
+                        </div>
                         </div>
                     </div>
                 </main>
@@ -69,8 +161,6 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="js/tabela1.js"></script> 
     </body>
 </html>
