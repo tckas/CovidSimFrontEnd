@@ -17,12 +17,12 @@ app.get('/',async function(req, res){
          token5 : key1[3]})
     
 });
-/* app.get('/dados', function(req, res){
-    res.sendFile(path.join(__dirname, '/public/dados.html'));
+app.get('/dados',async function(req, res){
+    res.render("dados")
 });
-app.get('/simulacao', function(req, res){
-    res.sendFile(path.join(__dirname, '/public/sim.html'));
-}); */
+//app.get('/simulacao', function(req, res){
+//    res.sendFile(path.join(__dirname, '/public/sim.html'));
+//});
 
 let port = process.env.PORT;
 if (port == null || port == "") {
