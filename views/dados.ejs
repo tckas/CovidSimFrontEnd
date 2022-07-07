@@ -10,7 +10,6 @@
         <link href="css/tabstyle.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
-        <script src="/scripts.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -21,11 +20,7 @@
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Gráficos de dados</h1>
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                Bla bla bla
-                            </div>
-                        </div>
+                        <br>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-chart-area me-1"></i>
@@ -94,10 +89,10 @@
                                             {label: 'Número de internados em UCI',
                                                 data: duplo1,
                                                 backgroundColor: [
-                                                    'rgba(255, 99, 100, 0.2)'
+                                                    'rgba(0, 255, 0, 0.2)'
                                                 ],
                                                 borderColor: [
-                                                    'rgba(255, 99, 100, 1)'
+                                                    'rgba(0, 255, 0, 1)'
                                                 ],
                                                 borderWidth: 2
                                         }]
@@ -145,6 +140,38 @@
                             </div>
                             
                         </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-area me-1"></i>
+                                Número de Óbitos Diário 
+                            </div>
+                            <div class="card-body">
+                                <canvas id="myAreaChart4" width="100%" height="30"></canvas>
+                                <script>
+                                var obid = <%- JSON.stringify(inf6) %>; 
+                                var obid1 = <%- JSON.stringify(inf7) %>;    
+                                chartitod();
+                                function chartitod(){                                     
+                                var ctx = document.getElementById('myAreaChart4');
+                                    var myChart = new Chart(ctx, {
+                                        type: 'line',
+                                        data: {
+                                            labels: obid1, 
+                                            datasets: [{
+                                                label: 'Óbitos Diários',
+                                                data: obid,
+                                                backgroundColor: [
+                                                    'rgba(0, 255, 255, 0.2)'
+                                                ],
+                                                borderColor: [
+                                                    'rgba(0, 255, 255, 1)'
+                                                ],
+                                                borderWidth: 2
+                                            }]
+                                        },
+                                    });
+                                }
+                                </script>
                         </div>
                     </div>
                 </main>
@@ -153,7 +180,7 @@
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Demonstração e Simulação COVID-19</div>
                             <div>
-                                <a href="https://autonoma.pt/en/">Universidadde Autónoma de Lisboa</a>
+                                <a href="https://autonoma.pt/en/">Universidade Autónoma de Lisboa</a>
                             </div>
                         </div>
                     </div>

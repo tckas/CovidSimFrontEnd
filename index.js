@@ -20,12 +20,14 @@ app.get('/',async function(req, res){
 app.get('/dados',async function(req, res){ 
     var tab = await lib.casosdiariosf() //2 infetados 3 data
     var tab1 = await lib.internadosf()  //4 lista de internados, 5 lista uci, 6 lista obitos, 7 lista datas
-    res.render("dados",{inf : tab[2], inf1 : tab[3], inf2 : tab1[4], inf3 : tab1[5], inf4 : tab1[6], inf5 : tab1[7]})
+    var tab2 = await lib.obitosdiariosf() 
+    res.render("dados",{inf : tab[2], inf1 : tab[3], inf2 : tab1[4], inf3 : tab1[5], inf4 : tab1[6], inf5 : tab1[7], inf6 : tab2[0], inf7 : tab2[1]})
     
 });
-//app.get('/simulacao', function(req, res){
-//    res.sendFile(path.join(__dirname, '/public/sim.html'));
-//});
+app.get('/simulacao',async function(req, res){
+   var pre = await lib.predictionf()
+   res.render("sim",{simu : pre[0], simu1 : pre[1], simu2 : pre[2], simu3 : pre[3]})
+});
 
 
 

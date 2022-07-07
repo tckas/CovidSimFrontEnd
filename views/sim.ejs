@@ -9,6 +9,7 @@
         <title>Simulação</title>
         <link href="css/tabstyle.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -28,11 +29,60 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-chart-area me-1"></i>
-                                Simulação
+                                Simulação de Casos Covid
                             </div>
-                            <div class="card-body"><canvas id="myAreaChart" width="100%" height="30"></canvas></div>
+                            <div class="card-body">
+                                <canvas id="myAreaChart2" width="100%" height="30"></canvas>
+                                <script>
+                                var datasim = <%- JSON.stringify(simu) %>; 
+                                var datasim1 = <%- JSON.stringify(simu1) %>;  
+                                var datasim2 = <%- JSON.stringify(simu2) %>;
+                                var datasim3 = <%- JSON.stringify(simu3) %>;  
+                                chartitd();
+                                function chartitd(){                                     
+                                var ctx = document.getElementById('myAreaChart2');
+                                    var myChart = new Chart(ctx, {
+                                        type: 'line',
+                                        data: {
+                                            labels: datasim3, 
+                                            datasets: [{
+                                                label: 'Número de pessoas Suscétiveis',
+                                                data: datasim,
+                                                backgroundColor: [
+                                                    'rgba(0, 0, 255, 0.2)'
+                                                ],
+                                                borderColor: [
+                                                    'rgba(0, 0, 255, 1)'
+                                                ],
+                                                borderWidth: 2
+                                            },
+                                            {label: 'Número de Infetados',
+                                                data: datasim1,
+                                                backgroundColor: [
+                                                    'rgba(0, 255, 0, 0.2)'
+                                                ],
+                                                borderColor: [
+                                                    'rgba(0, 255, 0, 1)'
+                                                ],
+                                                borderWidth: 2
+                                            },
+                                            {label: 'Número de Recuperados',
+                                                data: datasim2,
+                                                backgroundColor: [
+                                                    'rgba(255, 0, 0, 0.2)'
+                                                ],
+                                                borderColor: [
+                                                    'rgba(255, 0, 0, 1)'
+                                                ],
+                                                borderWidth: 2
+                                            }]
+                                        },
+                                    });
+                                }
+                                </script>
                             
-                        </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </main>
@@ -41,7 +91,7 @@
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Simulação COVID-19</div>
                             <div>
-                                <a href="https://autonoma.pt/en/">Universidadde Autónoma de Lisboa</a>
+                                <a href="https://autonoma.pt/en/">Universidade Autónoma de Lisboa</a>
                             </div>
                         </div>
                     </div>
