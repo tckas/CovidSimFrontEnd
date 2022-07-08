@@ -3,7 +3,7 @@ const { json } = require('express');
 require('dotenv').config();
 
 
-async function login(){ //apenas para demonstrar como seria feito o pedido do token ao Backend API com o método post
+async function login(){ // demonstra como seria feito o pedido do token ao Backend API com o método post
     const res = await axios.post("https://covidbackendual.herokuapp.com/login",{},{
         auth: {
             username: "tiago",
@@ -15,7 +15,7 @@ async function login(){ //apenas para demonstrar como seria feito o pedido do to
     return token.token;
 }
 
-
+//vai buscar a data do backend da sub-página internados, depois disso pega na data que está em formato JSON e divide pelas variáveis respetivas para que seja mais facilmente usável
 async function internadosf(){
     const res = await axios.get("https://covidbackendual.herokuapp.com/internados", {
         headers:{
@@ -48,7 +48,7 @@ async function internadosf(){
     
     return [internadosatuais, datainternados, internadosuciatual, obitosatual, listainternados, listauci, listaobitos, listadatasintern]
 }
-
+//vai buscar a data do backend da sub-página casos_diarios, depois disso pega na data que está em formato JSON e divide pelas variáveis respetivas para que seja mais facilmente usável
 async function casosdiariosf(){
     const res = await axios.get("https://covidbackendual.herokuapp.com/casos_diarios", {
         headers:{
@@ -73,7 +73,7 @@ async function casosdiariosf(){
     
     return [novosconfirm, datacasosatual, listaconfirmados, listadatasconf]
 } 
-
+//vai buscar a data do backend da sub-página get_obitos, depois disso pega na data que está em formato JSON e divide pelas variáveis respetivas para que seja mais facilmente usável
 async function obitosdiariosf(){
     const res = await axios.get("https://covidbackendual.herokuapp.com/get_obitos", {
         headers:{
@@ -94,7 +94,7 @@ async function obitosdiariosf(){
     return [listaobitosnovos, listadataobitos]
     
 }
-
+//vai buscar a data do backend da sub-página prediction, depois disso pega na data que está em formato de uma conjunto de listas numa lista e divide pelas variáveis respetivas para que seja mais facilmente usável
 async function predictionf(){
     const res = await axios.get("https://covidbackendual.herokuapp.com/prediction", {
         headers:{
@@ -124,9 +124,7 @@ async function predictionf(){
     }
     return [simul, simul2, simul3, listafuturo]
 }    
-// segundo numero de infetados
-// terceiro recuperados
-//primeiro suscetiveis
 
 
+//vai fazer com que as variaveis possam ser acedidas de outras partes do código
 module.exports = {casosdiariosf, internadosf, obitosdiariosf, predictionf}
