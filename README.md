@@ -10,3 +10,4 @@ facilmente através de gráficos e imagens interativas.
 
 É também apresentada um gráfico com dados de uma simulação
 futura do COVID, usando o modelo "SIR"
+O código Back-end encontra-se em https://github.com/RodrigoCostaGit/covid_sim_backend
